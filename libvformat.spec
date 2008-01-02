@@ -15,6 +15,7 @@ Patch:		%name-1.13-debian.diff.bz2
 URL:		http://sourceforge.net/projects/vformat/
 License:	GPL
 Group:		System/Libraries
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 Library to read and write vcard files
