@@ -11,7 +11,8 @@ Version: 	%{version}
 Release: 	%{release}
 
 Source:		%{name}-%{version}.tar.bz2
-Patch:		%name-1.13-debian.diff.bz2
+Patch0:		%name-1.13-debian.diff
+Patch1:		libvformat-1.13-fix-str-fmt.patch
 URL:		http://sourceforge.net/projects/vformat/
 License:	GPL
 Group:		System/Libraries
@@ -42,7 +43,8 @@ Libraries and includes files for developing programs based on %name.
 
 %prep
 %setup -q -n %name-%version.orig
-%patch -p1
+%patch0 -p1
+%patch1 -p0
 
 %build
 %configure2_5x
@@ -52,7 +54,7 @@ Libraries and includes files for developing programs based on %name.
 rm -rf $RPM_BUILD_ROOT
 # since we currently don't have c2man
 perl -p -i -e 's|install-data-hook|||g' doc/Makefile
-%makeinstall
+%makeinstall_std
 rm -fr $RPM_BUILD_ROOT/%_bindir/vformat
 
 %clean
