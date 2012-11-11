@@ -1,0 +1,61 @@
+--- src/vf_writer.c.str	2010-02-20 11:24:07.000000000 +0100
++++ src/vf_writer.c	2010-02-20 11:25:06.000000000 +0100
+@@ -229,7 +229,7 @@
+ 
+     fprintf(fp, "%s:%s", VFP_BEGIN, p_obj->p_type);
+     
+-    fprintf(fp, szEndOfLine);
++    fprintf(fp, "%s", szEndOfLine);
+ 
+     for (;NULL != p_props;p_props = p_props->p_next)
+     {
+@@ -301,12 +301,12 @@
+         }
+ 
+         if (VF_ENC_VOBJECT != p_props->value.encoding)
+-            fprintf(fp, szEndOfLine);
++            fprintf(fp, "%s", szEndOfLine);
+     }
+ 
+     fprintf(fp, "%s:%s", VFP_END, p_obj->p_type);
+ 
+-    fprintf(fp, szEndOfLine);
++    fprintf(fp, "%s", szEndOfLine);
+ 
+     if (ret && p_obj->p_next && write_all)
+     {
+@@ -382,14 +382,14 @@
+ 
+         if (((posn - 3) % (BASE64PERLINE / 4)) == 0)
+         {
+-            fprintf(fp, szEndOfLine);
++            fprintf(fp, "%s", szEndOfLine);
+             fprintf(fp, "    ");
+         }
+ 
+         fprintf(fp, "%s", quad);
+ 	}
+ 
+-    fprintf(fp, szEndOfLine);
++    fprintf(fp, "%s", szEndOfLine);
+ }
+ 
+ 
+@@ -429,7 +429,7 @@
+             if (3 + charsonline > QPMAXPERLINE)
+             {
+                 fprintf(fp, "=");
+-                fprintf(fp, szEndOfLine);
++                fprintf(fp, "%s", szEndOfLine);
+                 charsonline = 0;
+             }
+ 
+@@ -441,7 +441,7 @@
+                 if (0x0D == c)
+                 {
+                     fprintf(fp, "=");
+-                    fprintf(fp, szEndOfLine);
++                    fprintf(fp, "%s", szEndOfLine);
+                     charsonline = 0;
+                 }
+             }
