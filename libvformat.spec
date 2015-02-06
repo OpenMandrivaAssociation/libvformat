@@ -1,6 +1,6 @@
 %define name	libvformat
 %define version	1.13
-%define release  6
+%define release  7
 
 %define major	0
 %define libname %mklibname vformat %major
