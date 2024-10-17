@@ -13,7 +13,7 @@ Release: 	%{release}
 Source:		%{name}-%{version}.tar.bz2
 Patch0:		%name-1.13-debian.diff
 Patch1:		libvformat-1.13-fix-str-fmt.patch
-URL:		http://sourceforge.net/projects/vformat/
+URL:		https://sourceforge.net/projects/vformat/
 License:	GPL
 Group:		System/Libraries
 
