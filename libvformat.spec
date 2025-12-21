@@ -17,6 +17,11 @@ URL:		https://sourceforge.net/projects/vformat/
 License:	GPL
 Group:		System/Libraries
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 Library to read and write vcard files
 
